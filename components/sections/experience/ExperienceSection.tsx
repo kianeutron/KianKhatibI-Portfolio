@@ -1,6 +1,7 @@
 'use client';
 
 import { ScrollAnimation, ShootingStars } from '@/components/animations';
+import FloatingCodeTerminal from '@/components/animations/FloatingCodeTerminal';
 import { experiences } from '@/constants';
 import styles from './ExperienceSection.module.css';
 
@@ -8,6 +9,7 @@ export default function ExperienceSection() {
   return (
     <section id="experience" className={styles.experience}>
       <ShootingStars />
+      <FloatingCodeTerminal />
       <div className={styles.container}>
         <ScrollAnimation animationType="fadeIn">
           <h2 className={styles.sectionTitle}>
