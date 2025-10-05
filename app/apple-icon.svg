@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#b537f2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff006e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="180" height="180" fill="#0a0e27"/>
+  
+  <!-- Outer hexagon -->
+  <polygon points="90,20 150,55 150,125 90,160 30,125 30,55" 
+           fill="none" 
+           stroke="url(#grad1)" 
+           stroke-width="4"
+           filter="url(#glow)"/>
+  
+  <!-- Inner hexagon -->
+  <polygon points="90,45 125,65 125,115 90,135 55,115 55,65" 
+           fill="none" 
+           stroke="#00f0ff" 
+           stroke-width="3"
+           opacity="0.6"/>
+  
+  <!-- Letter K -->
+  <g fill="url(#grad1)" filter="url(#glow)">
+    <rect x="78" y="65" width="8" height="50"/>
+    <rect x="86" y="87" width="20" height="6" transform="rotate(-45 96 90)"/>
+    <rect x="86" y="93" width="20" height="6" transform="rotate(45 96 90)"/>
+  </g>
+  
+  <!-- Corner accents -->
+  <circle cx="90" cy="20" r="5" fill="#00f0ff" opacity="0.8"/>
+  <circle cx="150" cy="55" r="4" fill="#b537f2" opacity="0.6"/>
+  <circle cx="150" cy="125" r="4" fill="#ff006e" opacity="0.6"/>
+  <circle cx="90" cy="160" r="5" fill="#00f0ff" opacity="0.8"/>
+  <circle cx="30" cy="125" r="4" fill="#b537f2" opacity="0.6"/>
+  <circle cx="30" cy="55" r="4" fill="#ff006e" opacity="0.6"/>
+  
+  <!-- Additional cyber elements -->
+  <line x1="90" y1="20" x2="90" y2="45" stroke="#00f0ff" stroke-width="1" opacity="0.4"/>
+  <line x1="150" y1="55" x2="125" y2="65" stroke="#b537f2" stroke-width="1" opacity="0.4"/>
+  <line x1="150" y1="125" x2="125" y2="115" stroke="#ff006e" stroke-width="1" opacity="0.4"/>
+  <line x1="90" y1="160" x2="90" y2="135" stroke="#00f0ff" stroke-width="1" opacity="0.4"/>
+  <line x1="30" y1="125" x2="55" y2="115" stroke="#b537f2" stroke-width="1" opacity="0.4"/>
+  <line x1="30" y1="55" x2="55" y2="65" stroke="#ff006e" stroke-width="1" opacity="0.4"/>
+</svg>
+

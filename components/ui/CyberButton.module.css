@@ -1,0 +1,123 @@
+.cyberButton {
+  position: relative;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid var(--primary-cyan);
+  color: var(--text-white);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.cyberButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent);
+  transition: left 0.5s ease;
+}
+
+.cyberButton:hover::before {
+  left: 100%;
+}
+
+.cyberButton:hover {
+  box-shadow: 
+    0 0 20px var(--primary-cyan),
+    inset 0 0 20px rgba(0, 240, 255, 0.2);
+  border-color: var(--primary-purple);
+}
+
+.buttonContent {
+  position: relative;
+  z-index: 2;
+}
+
+.buttonGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-cyan), transparent);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.cyberButton:active .buttonGlow {
+  width: 300px;
+  height: 300px;
+  opacity: 0.3;
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .cyberButton {
+    padding: 0.9rem 1.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cyberButton {
+    padding: 0.85rem 1.5rem;
+    font-size: clamp(0.85rem, 3.5vw, 0.9rem);
+    letter-spacing: 1.5px;
+    width: auto;
+    max-width: 100%;
+    line-height: 1.2;
+    min-height: 44px;
+  }
+
+  .buttonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .cyberButton {
+    padding: 0.75rem 1.25rem;
+    font-size: clamp(0.75rem, 3vw, 0.85rem);
+    letter-spacing: 1px;
+    line-height: 1.2;
+    min-height: 44px;
+  }
+
+  .buttonContent {
+    line-height: 1.2;
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cyberButton:hover {
+    box-shadow: none;
+  }
+
+  .cyberButton:active {
+    box-shadow:
+      0 0 15px var(--primary-cyan),
+      inset 0 0 15px rgba(0, 240, 255, 0.2);
+    transform: scale(0.98);
+  }
+}
+
