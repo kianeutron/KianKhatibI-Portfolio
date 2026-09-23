@@ -1,0 +1,153 @@
+.diagram {
+  position: relative;
+  margin: 1.4rem 0 1.1rem;
+  padding: 0.8rem;
+  overflow: hidden;
+  background: rgb(0 14 0 / 72%);
+  border: 1px solid rgb(167 239 158 / 52%);
+  box-shadow:
+    inset 0 0 22px rgb(167 239 158 / 7%),
+    0 0 14px rgb(167 239 158 / 8%);
+}
+
+.diagram::before {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, rgb(167 239 158 / 16%) 4px, transparent 5px);
+  opacity: 0.17;
+  pointer-events: none;
+  content: '';
+}
+
+.header,
+.diagram figcaption,
+.boundaryLabel,
+.result {
+  position: relative;
+  z-index: 1;
+  color: rgb(167 239 158 / 70%);
+  font-size: 0.86em;
+  letter-spacing: 0.08em;
+}
+
+.header {
+  padding-bottom: 0.65rem;
+  border-bottom: 1px dashed rgb(167 239 158 / 28%);
+}
+
+.diagram figcaption {
+  margin-top: 0.75rem;
+  color: rgb(205 255 198 / 70%);
+  letter-spacing: 0.04em;
+}
+
+.body {
+  position: relative;
+  z-index: 1;
+  padding: 1rem 0.25rem 0;
+}
+
+.flowRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.reconstruction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.flowItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.node {
+  min-width: 10rem;
+  padding: 0.6rem 0.7rem;
+  color: var(--phosphor);
+  text-align: center;
+  letter-spacing: 0.06em;
+  font-size: 0.94em;
+  line-height: 1.05;
+  background: rgb(167 239 158 / 4.5%);
+  border: 1px solid rgb(167 239 158 / 64%);
+  text-shadow: 0 0 7px rgb(167 239 158 / 48%);
+}
+
+.arrow,
+.downArrow {
+  color: var(--phosphor);
+  text-shadow: 0 0 8px rgb(167 239 158 / 70%);
+}
+
+.arrow {
+  flex: none;
+  font-size: 1.2rem;
+}
+
+.downArrow {
+  width: 100%;
+  padding: 0.25rem 0;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.boundary {
+  position: relative;
+  margin: 0.15rem auto 0;
+  padding: 1.1rem 0.7rem 0.7rem;
+  border: 1px dashed rgb(167 239 158 / 46%);
+}
+
+.boundaryLabel {
+  position: absolute;
+  top: -0.65rem;
+  left: 0.75rem;
+  padding: 0 0.4rem;
+  background: #031003;
+}
+
+.result {
+  margin-top: 1rem;
+  color: var(--phosphor);
+}
+
+@media (max-width: 760px) {
+  .diagram {
+    margin-inline: -0.15rem;
+    padding: 0.65rem;
+  }
+
+  .flowRow,
+  .reconstruction {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flowItem {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+  }
+
+  .flowItem > .arrow {
+    transform: rotate(90deg);
+  }
+
+  .node {
+    width: min(100%, 19rem);
+    min-width: 0;
+  }
+
+  .downArrow {
+    display: none;
+  }
+}

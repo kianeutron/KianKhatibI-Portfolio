@@ -1,0 +1,89 @@
+.console {
+  --scanline: repeating-linear-gradient(0deg, transparent 0 3px, rgb(167 239 158 / 20%) 4px, transparent 5px);
+
+  position: relative;
+  width: 100%;
+  padding: var(--frame-inset);
+  overflow: hidden;
+  color: var(--phosphor);
+  letter-spacing: 0.025em;
+  background: #010701;
+  font-family: var(--font-terminal);
+  font-size: clamp(1rem, 1.45vw, 1.35rem);
+  line-height: 1.45;
+  text-shadow: 0 0 6px rgb(167 239 158 / 42%);
+}
+
+.window {
+  min-height: 100%;
+}
+
+.page {
+  min-height: 100svh;
+}
+
+/* CRT scanlines and vignette */
+.console::before,
+.console::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+}
+
+.console::before {
+  background: var(--scanline);
+  mix-blend-mode: screen;
+  opacity: 0.14;
+}
+
+.console::after {
+  background:
+    radial-gradient(ellipse at center, transparent 48%, rgb(0 12 0 / 62%) 100%),
+    repeating-linear-gradient(90deg, rgb(167 239 158 / 1.8%) 0 1px, transparent 1px 7px);
+  opacity: 0.75;
+}
+
+.transcript {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1rem, 2.2vw, 2.5rem) clamp(1rem, 2.2vw, 2.5rem) 4rem;
+}
+
+.line {
+  margin: 0.18rem 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.system,
+.heading {
+  color: #baffb2;
+  text-shadow: 0 0 10px rgb(167 239 158 / 70%);
+}
+
+.heading {
+  margin-top: 0.8rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.muted {
+  color: rgb(167 239 158 / 62%);
+}
+
+.output {
+  max-width: 92ch;
+  color: rgb(205 255 198 / 88%);
+}
+
+@media (max-width: 640px) {
+  .console {
+    font-size: 1.05rem;
+  }
+
+  .transcript {
+    padding: 1rem 0.9rem 2.5rem;
+  }
+}
