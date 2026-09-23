@@ -1,0 +1,157 @@
+.taskbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: var(--taskbar-height);
+  padding: 3px 5px 3px 0;
+  background: linear-gradient(#d9d9d9, #b9b9b9);
+  border-top: 2px solid #fff;
+  box-shadow: 0 -1px 0 #777;
+}
+
+.startButton {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 36px;
+  padding: 0 1rem 0 0.7rem;
+  color: #fff;
+  background: linear-gradient(#58a64f, #1c6f2a);
+  border: 2px solid;
+  border-color: var(--bevel-raised);
+  border-radius: 0 12px 12px 0;
+  cursor: pointer;
+  font: italic bold 0.9rem var(--font-ui);
+  text-shadow: 1px 1px #164518;
+}
+
+.startButton:active,
+.startPressed {
+  border-color: var(--bevel-pressed);
+}
+
+.flag {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.tasks {
+  display: flex;
+  flex: 1;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.task {
+  position: relative;
+  display: grid;
+  flex: 0 0 46px;
+  place-items: center;
+  width: 46px;
+  min-width: 46px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.task:focus-visible {
+  outline: 1px dotted var(--chrome-accent);
+}
+
+.taskActive::after {
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  left: 8px;
+  height: 2px;
+  background: var(--chrome-accent);
+  content: '';
+}
+
+.tray {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 92px;
+  max-width: 116px;
+  height: 28px;
+  margin-left: auto;
+  padding: 1px 7px 0 5px;
+  color: #222;
+  white-space: nowrap;
+  background: linear-gradient(#cfcfcf, #bdbdbd);
+  border: 2px solid;
+  border-color: #858585 #f4f4f4 #f4f4f4 #858585;
+  box-shadow:
+    inset 1px 1px 0 #a4a4a4,
+    inset -1px -1px 0 #dedede;
+  font: 0.72rem/1 var(--font-ui);
+}
+
+.trayChevron,
+.trayStatus {
+  display: grid;
+  flex: 0 0 15px;
+  place-items: center;
+  width: 15px;
+  height: 18px;
+  line-height: 1;
+  text-align: center;
+}
+
+.trayChevron {
+  font-size: 0.58rem;
+  transform: translateY(-1px);
+}
+
+.trayStatus {
+  color: #128328;
+  font-size: 0.62rem;
+  text-shadow: 1px 1px 0 #ecffec;
+}
+
+.trayClock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+  height: 18px;
+  padding-top: 1px;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .tasks {
+    display: none;
+  }
+
+  .tray {
+    min-width: 84px;
+    max-width: 96px;
+    height: 26px;
+    padding-right: 5px;
+    padding-left: 4px;
+  }
+
+  .trayChevron,
+  .trayStatus {
+    flex-basis: 13px;
+    width: 13px;
+  }
+
+  .trayClock {
+    min-width: 42px;
+  }
+}

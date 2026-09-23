@@ -1,0 +1,145 @@
+.window {
+  position: absolute;
+  top: var(--window-y);
+  left: var(--window-x);
+  z-index: var(--window-z);
+  display: flex;
+  flex-direction: column;
+  width: var(--window-width);
+  min-width: 300px;
+  height: var(--window-height);
+  min-height: 200px;
+  padding: var(--frame-inset);
+  overflow: hidden;
+  background: var(--chrome-face);
+  border: 2px solid;
+  border-color: var(--chrome-light) #404040 #404040 var(--chrome-light);
+  box-shadow:
+    2px 2px 0 #111,
+    4px 4px 0 rgb(0 0 0 / 24%);
+  transform-origin: center top;
+  animation: window-open 0.18s steps(3, end) both;
+}
+
+.minimized {
+  display: none;
+}
+
+.maximized {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100svh - var(--taskbar-height));
+}
+
+.titlebar {
+  display: flex;
+  flex: 0 0 26px;
+  align-items: center;
+  gap: 0.28rem;
+  height: 26px;
+  padding: 0 0.22rem 0 0.3rem;
+  color: #fff;
+  background: var(--titlebar-gradient);
+  cursor: move;
+  user-select: none;
+  touch-action: none;
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+.titlebar strong {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.titleIcon {
+  display: grid;
+  flex: 0 0 28px;
+  place-items: center;
+  width: 28px;
+  height: 24px;
+}
+
+.controls {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.12rem;
+  height: 100%;
+}
+
+.body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  color: var(--chrome-text);
+  background: #fff;
+}
+
+/* Body treatments per window variant */
+.dialog .body {
+  overflow: hidden;
+}
+
+.game .body,
+.document .body {
+  display: block;
+  overflow: hidden auto;
+}
+
+.game.maximized .body {
+  overflow: hidden;
+}
+
+@media (max-width: 1024px), (pointer: coarse) {
+  .game.maximized .body {
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .window:not(.maximized) {
+    top: 6%;
+    left: 1%;
+    width: 98%;
+    min-width: 0;
+    height: 78svh;
+  }
+}
+
+@keyframes window-open {
+  from {
+    opacity: 0;
+    transform: translateY(5px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Phones and tablets: a taller title bar with comfortably tappable controls. */
+@media (max-width: 1024px), (pointer: coarse) {
+  .titlebar {
+    flex-basis: 38px;
+    height: 38px;
+  }
+
+  .controls {
+    --xp-button-width: 34px;
+    --xp-button-height: 30px;
+
+    gap: 4px;
+  }
+}

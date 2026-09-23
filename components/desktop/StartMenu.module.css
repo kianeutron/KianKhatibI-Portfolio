@@ -1,0 +1,78 @@
+.menu {
+  position: fixed;
+  bottom: var(--taskbar-height);
+  left: 0;
+  z-index: 1100;
+  width: 320px;
+  background: var(--chrome-face);
+  border: 2px solid;
+  border-color: var(--chrome-light) #444 #444 var(--chrome-light);
+  box-shadow: 3px -3px 0 rgb(0 0 0 / 30%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem;
+  color: #fff;
+  background: linear-gradient(90deg, #08219f, #148de2);
+  font-size: 1rem;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--chrome-accent);
+  font-weight: 700;
+  background: #ddd;
+  border: 2px solid #fff;
+}
+
+.items {
+  display: grid;
+  padding: 0.45rem;
+}
+
+.items button {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 0.35rem;
+  min-height: 32px;
+  padding: 0.55rem;
+  color: var(--chrome-text);
+  text-align: left;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: 0.82rem var(--font-ui);
+}
+
+.items button > :first-child {
+  justify-self: center;
+}
+
+.items button:hover,
+.items button:focus-visible {
+  color: #fff;
+  background: var(--chrome-accent);
+  outline: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem;
+  border-top: 1px solid #888;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .menu {
+    width: min(320px, 92vw);
+  }
+}

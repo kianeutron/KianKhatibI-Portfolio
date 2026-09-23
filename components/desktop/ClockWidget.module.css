@@ -1,0 +1,105 @@
+.widgets {
+  position: absolute;
+  top: 1.4rem;
+  right: 1rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.clock {
+  width: 170px;
+  color: var(--chrome-text);
+  font: 0.68rem var(--font-ui);
+  text-shadow: 1px 1px 0 rgb(255 255 255 / 72%);
+}
+
+.title {
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.22rem;
+  color: var(--chrome-accent);
+  font-weight: 700;
+  text-align: center;
+}
+
+.face {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 0.55rem;
+  overflow: hidden;
+  background: #f1f1f1;
+  border: 4px solid var(--chrome-dark);
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 rgb(0 0 0 / 35%);
+}
+
+.tick,
+.hourHand,
+.minuteHand,
+.secondHand {
+  position: absolute;
+  left: calc(50% - 1px);
+  width: 2px;
+  transform: rotate(var(--angle));
+}
+
+.tick {
+  top: 7px;
+  height: 10px;
+  background: #333;
+  transform-origin: 1px 63px;
+}
+
+.hourHand,
+.minuteHand,
+.secondHand {
+  bottom: 50%;
+  background: #222;
+  border-radius: 2px;
+  transform-origin: 1px 100%;
+}
+
+.hourHand {
+  height: 35px;
+}
+
+.minuteHand {
+  height: 48px;
+}
+
+.secondHand {
+  width: 1px;
+  height: 52px;
+  background: #b00000;
+}
+
+.pin {
+  position: absolute;
+  top: calc(50% - 4px);
+  left: calc(50% - 4px);
+  width: 8px;
+  height: 8px;
+  background: #c00;
+  border: 1px solid #333;
+  border-radius: 50%;
+}
+
+.date {
+  display: block;
+  color: #222;
+  text-align: center;
+  font: 0.72rem var(--font-ui);
+}
+
+/* Phones and tablets: a compact clock so it does not crowd the icons. */
+@media (max-width: 1024px), (pointer: coarse) {
+  .widgets {
+    top: 0.75rem;
+    right: 0.6rem;
+  }
+
+  .clock {
+    transform: scale(0.55);
+    transform-origin: top right;
+  }
+}

@@ -1,0 +1,8 @@
+.desktop {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  color: var(--chrome-text);
+  background: #000;
+  font-family: var(--font-ui);
+}
