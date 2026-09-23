@@ -1,263 +1,193 @@
-* {
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+:root {
+  /* Classic desktop chrome */
+  --chrome-face: #c0c0c0;
+  --chrome-panel: #ece9d8;
+  --chrome-light: #fff;
+  --chrome-shadow: #808080;
+  --chrome-dark: #555;
+  --chrome-text: #111;
+  --chrome-muted: #555;
+  --chrome-accent: #000080;
+  --chrome-selection: #c6d8ff;
+  --chrome-hover: #dce9ff;
+  --chrome-success: #087c22;
+  --titlebar-gradient: linear-gradient(90deg, #071a9d, #1186df 72%, #1a94e7);
+
+  /* Bevels: border-color values for raised, pressed and sunken surfaces */
+  --bevel-raised: var(--chrome-light) var(--chrome-dark) var(--chrome-dark) var(--chrome-light);
+  --bevel-pressed: var(--chrome-dark) var(--chrome-light) var(--chrome-light) var(--chrome-dark);
+  --bevel-sunken: var(--chrome-shadow) var(--chrome-light) var(--chrome-light) var(--chrome-shadow);
+  --bevel-soft: var(--chrome-light) var(--chrome-shadow) var(--chrome-shadow) var(--chrome-light);
+
+  /* Phosphor terminal */
+  --phosphor: #a7ef9e;
+  --phosphor-bright: #d3ffcc;
+
+  /* Typography */
+  --font-ui: tahoma, 'MS Sans Serif', arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --font-terminal: var(--font-vt323), 'Courier New', monospace;
+
+  /* Layout */
+  --taskbar-height: 42px;
+  --frame-inset: 2rem;
+}
+
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --bg-dark: #0a0e27;
-  --bg-darker: #050814;
-  --primary-cyan: #00f0ff;
-  --primary-purple: #b537f2;
-  --primary-pink: #ff006e;
-  --accent-blue: #3a86ff;
-  --text-white: #ffffff;
-  --text-gray: #a0a0a0;
-}
-
 html {
-  scroll-behavior: smooth;
-  font-size: 16px;
   width: 100%;
   overflow-x: hidden;
+  font-size: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #2d7be8 #b9d7ff;
 }
 
 body {
-  background: var(--bg-darker);
-  color: var(--text-white);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  position: relative;
   width: 100%;
   max-width: 100vw;
-  position: relative;
-  /* Performance optimizations */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+  overflow-x: hidden;
+  background: #000;
+  color: #e8ffe8;
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Cyber Grid Background - Optimized */
-.cyber-grid {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image:
-    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform;
-  transform: translateZ(0);
-}
-
-/* Neon Glow Effects - Optimized */
-.neon-text {
-  text-shadow:
-    0 0 10px var(--primary-cyan),
-    0 0 20px var(--primary-cyan);
-  will-change: transform;
-}
-
-.neon-border {
-  border: 2px solid var(--primary-cyan);
-  box-shadow:
-    0 0 10px var(--primary-cyan),
-    inset 0 0 10px var(--primary-cyan);
-  will-change: transform;
-}
-
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple), var(--primary-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-darker);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--primary-cyan), var(--primary-purple));
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--primary-purple), var(--primary-pink));
-}
-
-/* Particle Container - Optimized */
-.particles-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  will-change: transform;
-  transform: translateZ(0);
-}
-
-/* Section Styling - Optimized */
-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  z-index: 2;
-  will-change: transform;
-  transform: translateZ(0);
-}
-
-/* Glitch Effect */
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
+/* Larger tap targets on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a {
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
-.glitch {
-  animation: glitch 0.3s infinite;
-}
-
-/* Floating Animation */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.floating {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Pulse Animation */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.pulse {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-/* Responsive Utilities */
+/* Responsive scale: the window frame and root font size step down with the viewport.
+   Declared after the base rules so they win the cascade. */
 @media (max-width: 1024px) {
-  section {
-    padding: 1.5rem;
+  :root {
+    --frame-inset: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  :root {
+    --frame-inset: 1rem;
+  }
+
   html {
-    font-size: 14px; /* Slightly smaller base font for mobile */
-  }
-
-  section {
-    min-height: auto;
-    padding: 1rem;
-  }
-
-  /* Reduce grid size on mobile */
-  .cyber-grid {
-    background-size: 30px 30px;
-    opacity: 0.3;
-  }
-
-  /* Simplify gradients on mobile for performance */
-  .gradient-text {
-    background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
+  :root {
+    --frame-inset: 0.75rem;
+  }
+
   html {
     font-size: 13px;
   }
-
-  section {
-    padding: 0.75rem;
-  }
-
-  /* Further reduce grid on small mobile */
-  .cyber-grid {
-    background-size: 25px 25px;
-    opacity: 0.2;
-  }
 }
 
-/* Landscape mobile optimization */
-@media (max-height: 600px) and (orientation: landscape) {
-  section {
-    min-height: auto;
-    padding: 1rem;
+/* `!important` is intentional: this reset must beat every component's animation and transition. */
+/* stylelint-disable declaration-no-important */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
+/* stylelint-enable declaration-no-important */
 
-/* Touch-friendly interactions */
-@media (hover: none) and (pointer: coarse) {
-  /* Increase tap target sizes for mobile */
-  button, a {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  /* Remove hover effects on touch devices */
-  .card:hover,
-  .skillCard:hover,
-  .contactLink:hover,
-  .techTag:hover {
-    transform: none;
-  }
-
-  /* Add active states instead */
-  .card:active {
-    transform: scale(0.98);
-  }
-
-  .techTag:active {
-    transform: scale(0.95);
-  }
+/* ==========================================================================
+   Scrollbars (XP-style)
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
 }
 
+::-webkit-scrollbar-track {
+  background:
+    linear-gradient(90deg, rgb(255 255 255 / 70%), transparent 18%, transparent 82%, rgb(44 93 164 / 28%)), #b9d7ff;
+  border-right: 1px solid #7aa6d8;
+  border-left: 1px solid #fff;
+  box-shadow:
+    inset 1px 0 0 #dff0ff,
+    inset -1px 0 0 #8cb6e6;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 40px;
+  background:
+    linear-gradient(90deg, rgb(255 255 255 / 65%), rgb(255 255 255 / 0%) 22%, rgb(0 0 0 / 12%) 78%, rgb(0 0 0 / 24%)),
+    linear-gradient(180deg, #7db8ff 0%, #2d7be8 48%, #1556bf 100%);
+  border: 1px solid #0d3f9d;
+  border-top-color: #d7ebff;
+  border-left-color: #d7ebff;
+  border-radius: 0;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #0a3b91,
+    inset 0 0 0 2px rgb(86 151 234 / 55%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(90deg, rgb(255 255 255 / 78%), rgb(255 255 255 / 0%) 24%, rgb(0 0 0 / 12%) 78%, rgb(0 0 0 / 24%)),
+    linear-gradient(180deg, #9ac9ff 0%, #3a8cff 48%, #1764d9 100%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 12%), transparent 24%, rgb(255 255 255 / 22%) 82%),
+    linear-gradient(180deg, #1f66c8 0%, #1150b4 52%, #0a3d91 100%);
+  border-color: #0a3b91 #d7ebff #d7ebff #0a3b91;
+  box-shadow:
+    inset 1px 1px 0 #08357f,
+    inset -1px -1px 0 #fff,
+    inset 0 0 0 2px rgb(86 151 234 / 42%);
+}
+
+::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #fff 0%, #d6ebff 45%, #8cb6e6 100%);
+  border: 1px solid #0d3f9d;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  box-shadow: inset -1px -1px 0 #5f92cf;
+}
+
+::-webkit-scrollbar-button:hover {
+  background: linear-gradient(135deg, #fff 0%, #e8f5ff 38%, #9bc8f5 100%);
+}
+
+::-webkit-scrollbar-button:active {
+  background: linear-gradient(135deg, #7aa6d8 0%, #b9d7ff 62%, #fff 100%);
+  border-color: #0d3f9d #fff #fff #0d3f9d;
+}
+
+::-webkit-scrollbar-corner {
+  background: #b9d7ff;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
