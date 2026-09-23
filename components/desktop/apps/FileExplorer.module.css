@@ -1,0 +1,91 @@
+.explorer {
+  height: 100%;
+  background: #fff;
+}
+
+.toolbar {
+  --xp-button-width: 25px;
+  --xp-button-height: 23px;
+
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: var(--chrome-face);
+  border-bottom: 2px solid var(--chrome-shadow);
+}
+
+.address {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  padding: 0.25rem;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid;
+  border-color: var(--bevel-sunken);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+/* The icon is taller than the text line; pull it in so it does not stretch the bar. */
+.address > :first-child {
+  margin: -0.4rem 0 -0.4rem -0.35rem;
+}
+
+.search {
+  width: 112px;
+  padding: 0.28rem;
+  border: 2px solid;
+  border-color: var(--bevel-sunken);
+}
+
+.fileGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 0.75rem;
+  padding: 0.75rem;
+}
+
+.file {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+  padding: 0.4rem;
+  color: var(--chrome-text);
+  text-align: center;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font: 0.78rem var(--font-ui);
+}
+
+.file:hover,
+.file:focus-visible {
+  background: var(--chrome-selection);
+  border-color: var(--chrome-accent);
+  outline: 1px dotted var(--chrome-accent);
+}
+
+.file span {
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  margin: 0.5rem;
+  padding: 0.65rem;
+  color: var(--chrome-muted);
+  text-align: center;
+  border: 1px dotted #777;
+  font: 0.78rem var(--font-ui);
+}
+
+@media (max-width: 1024px), (pointer: coarse) {
+  .toolbar {
+    --xp-button-width: 32px;
+    --xp-button-height: 30px;
+  }
+}

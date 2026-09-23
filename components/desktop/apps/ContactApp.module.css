@@ -1,0 +1,40 @@
+.list {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.link {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 0.5rem;
+  padding: 0.5rem;
+  color: var(--chrome-text);
+  text-decoration: none;
+  background: #ddd;
+  border: 2px solid;
+  border-color: var(--bevel-soft);
+}
+
+.link:hover {
+  background: var(--chrome-selection);
+}
+
+.link small {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--chrome-muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  display: grid;
+  grid-row: span 2;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+}
+
+.newMessage {
+  margin-top: 1rem;
+}

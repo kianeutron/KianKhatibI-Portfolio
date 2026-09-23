@@ -1,0 +1,36 @@
+.row {
+  margin-bottom: 0.5rem;
+  padding: 0.55rem;
+  background: #ddd;
+  border: 2px solid;
+  border-color: var(--bevel-soft);
+}
+
+.row strong,
+.row span {
+  display: block;
+}
+
+.row span {
+  margin-top: 0.15rem;
+  color: var(--chrome-muted);
+}
+
+.row p {
+  margin: 0.42rem 0;
+}
+
+.row small {
+  color: var(--chrome-accent);
+}
+
+.highlights {
+  display: grid;
+  gap: 0.28rem;
+  margin: 0.45rem 0 0.6rem;
+  padding-left: 1.1rem;
+}
+
+.highlights li::marker {
+  color: var(--chrome-accent);
+}

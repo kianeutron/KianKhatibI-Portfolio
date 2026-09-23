@@ -1,0 +1,39 @@
+.calculator {
+  display: grid;
+  gap: 0.55rem;
+  height: 100%;
+  padding: 0.7rem;
+  background: var(--chrome-face);
+}
+
+.display {
+  min-height: 2.2rem;
+  padding: 0.35rem 0.5rem;
+  overflow: hidden;
+  color: var(--chrome-text);
+  text-align: right;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: #fff;
+  border: 2px solid;
+  border-color: #777 #fff #fff #777;
+  font: 1.3rem/1.3 var(--font-mono);
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+}
+
+/* Doubled selectors out-rank the shared button variant regardless of CSS order. */
+.keys .operator,
+.keys .equals {
+  color: var(--chrome-accent);
+  font-weight: 700;
+}
+
+.keys .equals,
+.keys .equals:hover {
+  background: linear-gradient(#dce9ff, #9bb9e7);
+}
