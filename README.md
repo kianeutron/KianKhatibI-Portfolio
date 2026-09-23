@@ -1,103 +1,60 @@
-# Kian Khatibi - Personal Portfolio Website
+# Kian Khatibi — Portfolio
 
-A stunning personal portfolio website with spaceship cyber-themed animations built with Next.js, TypeScript, and Anime.js.
+An interactive portfolio presented as a classic desktop: draggable windows, a taskbar, a start menu and small
+apps (experience log, skills panel, contact, calculator, Snake, and three terminal-style case studies) on top of a
+WebGL terminal wallpaper.
 
-## 🚀 Features
+Built with **Next.js 15 (App Router)**, **React 18** and **strict TypeScript**. Styling is plain **CSS Modules**
+driven by a small set of design tokens — there is no Tailwind or CSS-in-JS.
 
-- **Spaceship Animations**: Dynamic spaceship flying across the screen with smooth anime.js animations
-- **Particle Field**: Interactive particle system with connecting lines
-- **Cyber Grid Background**: Futuristic grid overlay with neon effects
-- **Scroll-Triggered Animations**: Each section animates smoothly as you scroll
-- **Responsive Design**: Fully responsive across all devices (mobile, tablet, desktop)
-- **Neon Cyber Theme**: Vibrant cyan, purple, and pink color scheme with glow effects
-- **Smooth Transitions**: Buttery smooth animations using anime.js and Framer Motion
-- **Performance Optimized**: 60 FPS on desktop, 50-60 FPS on mobile
+## Getting started
 
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Animations**: Anime.js + Framer Motion
-- **Styling**: CSS Modules + Custom CSS
-- **Scroll Detection**: React Intersection Observer
-
-## 📦 Installation
-
-1. Install dependencies:
 ```bash
 npm install
+npm run dev        # http://localhost:3000
 ```
 
-2. Run the development server:
-```bash
-npm run dev
-```
+| Script              | Purpose                                                |
+| ------------------- | ------------------------------------------------------ |
+| `npm run dev`       | Start the development server                           |
+| `npm run build`     | Production build                                       |
+| `npm run start`     | Serve the production build                             |
+| `npm run typecheck` | Type-check without emitting                            |
+| `npm run lint`      | ESLint (Next.js + TypeScript rules)                    |
+| `npm run lint:css`  | Stylelint for CSS Modules (no `!important`, camelCase) |
+| `npm test`          | Unit tests (Vitest) for `lib/` and the window reducer  |
+| `npm run format`    | Format everything with Prettier                        |
+| `npm run check`     | Typecheck, lint, stylelint, tests and format check     |
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+CI runs `npm run check` and a production build on every push and pull request.
 
-## 🎨 Customization
-
-### Update Your Information
-
-Edit the content in the following files:
-
-- **Experience**: `constants/experience.ts` - Add your work experience
-- **Skills**: `constants/skills.ts` - Update your skills and technologies
-- **Contact**: `constants/contact.ts` - Update your contact information
-
-### Color Scheme
-
-Modify the CSS variables in `app/globals.css`:
-
-```css
-:root {
-  --bg-dark: #0a0e27;
-  --bg-darker: #050814;
-  --primary-cyan: #00f0ff;
-  --primary-purple: #b537f2;
-  --primary-pink: #ff006e;
-  --accent-blue: #3a86ff;
-}
-```
-
-## 📁 Project Structure
+## Project layout
 
 ```
-├── app/
-│   ├── layout.tsx          # Root layout
-│   ├── page.tsx            # Main page
-│   └── globals.css         # Global styles
-├── components/
-│   ├── animations/         # Animation components
-│   ├── layout/            # Layout components (Nav, Loading)
-│   ├── sections/          # Page sections (Hero, Experience, Skills, Contact)
-│   └── ui/                # UI components (Buttons, etc.)
-├── constants/             # Data constants
-├── types/                 # TypeScript types
-├── utils/                 # Utility functions
-└── Documentation files
+app/                 Routes, root layout, global tokens and base styles
+components/
+  desktop/           Window manager, taskbar, start menu and the apps that run in windows
+  case-studies/      Terminal-style case study renderer and diagrams
+  games/             Snake UI (rules live in lib/snake.ts)
+  effects/           WebGL wallpaper
+  ui/                Shared presentational primitives (buttons, icons, panels)
+constants/           Portfolio content: experience, skills, contact, case studies
+lib/                 Pure, framework-free logic (calculator, snake, rate limiter, helpers)
+types/               Shared domain types
+middleware.ts        Method allow-list, URL limit and per-process rate limiting
 ```
 
-## 🚀 Deployment
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for how the pieces fit together, and
+[SECURITY.md](SECURITY.md) for deployment requirements.
 
-### Vercel (Recommended)
+## Conventions
 
-1. Push your code to GitHub
-2. Import your repository on [Vercel](https://vercel.com)
-3. Deploy with one click
-
-### Other Platforms
-
-Build the production version:
-```bash
-npm run build
-npm start
-```
-
-## 📝 License
-
-MIT License - feel free to use this for your own portfolio!
-
-## 🎨 Credits
-
-Created with ❤️ using Next.js, TypeScript, and Anime.js
+- **Content is data.** Edit text in `constants/`; components never hard-code portfolio copy.
+- **Logic is pure.** Anything with rules (calculator, snake, window manager, rate limiter) lives in a React-free
+  module with a reducer or pure function, and the component is a thin view over it.
+- **One CSS Module per component**, colocated. Colours, bevels, fonts and spacing come from the tokens in
+  `app/globals.css`; do not repeat hex values across modules.
+- **Data-driven layout values** (window position, clock hand angles) are passed as CSS custom properties, not as
+  hard-coded inline styles, so media queries can still override them without `!important`.
+- **Tested where it matters.** Rules live in pure modules with unit tests colocated as `*.test.ts`.
+- **Strict TypeScript** with `noUncheckedIndexedAccess` and `exactOptionalPropertyTypes`; avoid `any` and casts.
