@@ -3,6 +3,7 @@
 
   position: relative;
   width: 100%;
+  min-height: 100%;
   padding: var(--frame-inset);
   overflow: hidden;
   color: var(--phosphor);
@@ -12,14 +13,6 @@
   font-size: clamp(1rem, 1.45vw, 1.35rem);
   line-height: 1.45;
   text-shadow: 0 0 6px rgb(167 239 158 / 42%);
-}
-
-.window {
-  min-height: 100%;
-}
-
-.page {
-  min-height: 100svh;
 }
 
 /* CRT scanlines and vignette */

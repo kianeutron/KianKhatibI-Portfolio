@@ -51,8 +51,8 @@ The `Record<WindowId, …>` in `windowContent.tsx` makes step 2 a compile error 
 ## Case studies
 
 Case study text lives in `constants/caseStudies.ts` as typed data. `CaseStudyConsole` flattens a study into
-terminal lines with `buildTranscript`, and `CaseStudyDiagram` renders the inline diagrams. The same console is used
-inside windows (`layout="window"`) and on `/case-studies` (`layout="page"`).
+terminal lines with `buildTranscript`, and `CaseStudyDiagram` renders the inline diagrams.
+It only renders inside its desktop window.
 
 ## Pure logic (`lib/`)
 
