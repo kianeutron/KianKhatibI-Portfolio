@@ -1,0 +1,22 @@
+.panel {
+  min-height: 100%;
+  padding: 0.65rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  padding: 0.28rem 0.32rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--chrome-shadow);
+}
+
+.header span {
+  color: var(--chrome-muted);
+  font-weight: 400;
+  font-size: 0.72rem;
+}

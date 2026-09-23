@@ -1,0 +1,63 @@
+.icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  overflow: visible;
+}
+
+.icon :is(path, rect, circle) {
+  vector-effect: non-scaling-stroke;
+}
+
+.shadow {
+  fill: rgb(0 0 0 / 32%);
+  stroke: none;
+}
+
+.highlight {
+  fill: rgb(255 255 255 / 48%);
+  stroke: none;
+}
+
+/* Email */
+.envelope {
+  fill: #edf5f9;
+  stroke: #5f6f78;
+  stroke-width: 1.7;
+}
+
+.stroke {
+  fill: none;
+  stroke: #5f6f78;
+  stroke-width: 1.6;
+  stroke-linecap: square;
+  stroke-linejoin: bevel;
+}
+
+.stamp {
+  fill: #d44747;
+  stroke: #8f2424;
+  stroke-width: 0.8;
+}
+
+/* GitHub */
+.dark {
+  fill: #202329;
+  stroke: #090b0e;
+  stroke-width: 1.1;
+}
+
+.face {
+  fill: #f3f7f8;
+}
+
+/* LinkedIn */
+.blue {
+  fill: #136fbd;
+  stroke: #074b8c;
+  stroke-width: 1.5;
+}
+
+.white {
+  fill: #fff;
+}
