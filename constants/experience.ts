@@ -1,26 +1,85 @@
-import { Experience } from '@/types';
+import { type Experience } from '@/types';
 
 export const experiences: Experience[] = [
   {
     title: 'Software Engineer',
-    company: 'MasterSolutions - Netherlands',
+    company: 'Master Solutions - Netherlands',
     period: 'Present',
-    description: 'Developing web and native applications using modern frameworks. Building scalable solutions with React, Angular, and creating cross-platform mobile apps with Angular Capacitor. Working with both SQL and NoSQL databases, implementing Web APIs with C#, and designing user interfaces in Figma.',
-    technologies: ['React', 'Angular', 'Angular Capacitor', 'C# Web API', 'SQL', 'NoSQL', 'Figma'],
+    description:
+      'Working across enterprise software, internal platforms, AI-driven systems, and application security. My role spans backend development, frontend engineering, database design, system integration, and increasingly AI-oriented architecture. I primarily work with C#/ASP.NET, Angular, React, SQL Server, Entity Framework, OData, Python, and SignalR, contributing to systems used in real operational environments rather than isolated prototypes. Joined through a full-stack development internship before progressing into my current software engineering role.',
+    highlights: [
+      'Building and evolving an AI-native reporting platform with natural-language data-source creation, structured AI-generated components, and agentic workflows.',
+      'Developing parts of a real-time field operations platform, including APIs, database synchronization, stored procedures, PWA interfaces, and live SignalR updates.',
+      'Working with complex SQL Server data models, business logic, integrations, and synchronization between enterprise systems.',
+      'Contributing to frontend architecture and UI/UX improvements across Angular and React applications.',
+      'Performing authorized web-application security testing and supporting remediation and security hardening.',
+    ],
+    technologies: [
+      'C#',
+      'ASP.NET',
+      'Angular',
+      'React',
+      'SQL Server',
+      'Entity Framework',
+      'OData',
+      'Python',
+      'SignalR',
+      'AI Systems',
+      'Application Security',
+    ],
   },
   {
-    title: 'Programming Intern',
-    company: 'MasterSolutions',
-    period: 'Completed',
-    description: 'Completed internship focused on full-stack development. Gained hands-on experience with React, Angular, database management, API development with C#, and mobile application development using Angular Capacitor.',
-    technologies: ['React', 'Angular', 'C#', 'SQL', 'NoSQL', 'Web API'],
-  },
-  {
-    title: 'Freelance Developer',
-    company: 'Various Projects',
+    title: 'Independent / Freelance Developer',
+    company: 'Selected Projects',
     period: 'Ongoing',
-    description: 'Working on diverse freelance projects involving web and mobile application development, database design, and UI/UX design. Specializing in React, React Native, and Angular frameworks, implementing RESTful APIs with C#, managing both SQL and NoSQL databases, and creating modern web designs with Figma.',
-    technologies: ['React', 'React Native', 'Angular', 'NoSQL', 'SQL', 'C# Web API', 'Figma'],
+    description:
+      'Building independent software products and taking on project-based development across web applications, AI integrations, backend systems, databases, automation, and product design. These projects give me room to explore technologies and architecture beyond my day-to-day enterprise work, while taking products from an initial idea through system design, implementation, and usable interfaces.',
+    highlights: [
+      'Developing AI-powered applications that combine LLM integrations with application data, business logic, and structured workflows.',
+      'Building full-stack applications with React, Next.js, Node.js, C#, Python, Supabase, and SQL or NoSQL databases.',
+      'Designing backend architecture, APIs, authentication flows, data models, and application integrations.',
+      'Creating responsive product interfaces from concept and Figma designs through implementation.',
+      'Experimenting with agentic workflows, automation, model integrations, and modern AI application patterns.',
+      'Building personal products and technical experiments to explore new approaches before applying them to larger systems.',
+    ],
+    technologies: [
+      'React',
+      'Next.js',
+      'Node.js',
+      'C#',
+      'Python',
+      'AI and LLM Integrations',
+      'SQL',
+      'NoSQL',
+      'Supabase',
+      'REST APIs',
+      'UI/UX',
+    ],
+  },
+  {
+    title: 'Independent AI & Security Engineering',
+    company: 'Personal R&D / Applied Learning',
+    period: 'Ongoing',
+    description:
+      'Exploring AI systems, agentic workflows, application security, and lower-level technical foundations outside of my day-to-day product work. My independent work includes building agents and MCP integrations in Microsoft Foundry, studying machine learning with Python, working extensively with Linux environments, and practicing authorized web-application security testing using Kali Linux, Burp Suite, and Nmap.',
+    highlights: [
+      'Building and experimenting with AI agents, MCP integrations, model orchestration, and structured agent workflows.',
+      'Studying machine-learning foundations and implementing concepts in Python.',
+      'Working with Linux environments for development, networking, debugging, and security testing.',
+      'Performing controlled web-application assessments focused on authentication, exposed attack surface, TLS, headers, configuration, and application behavior.',
+      'Learning how security findings translate into practical engineering changes, remediation, and defense-in-depth.',
+    ],
+    technologies: [
+      'Microsoft Foundry',
+      'Agents',
+      'MCP',
+      'Python',
+      'Machine Learning',
+      'Kali Linux',
+      'Burp Suite',
+      'Nmap',
+      'Linux',
+      'Application Security',
+    ],
   },
 ];
-

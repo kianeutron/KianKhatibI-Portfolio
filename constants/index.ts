@@ -1,4 +1,4 @@
-export { experiences } from './experience';
-export { skills, additionalTechnologies } from './skills';
+export { caseStudies } from './caseStudies';
 export { contactInfo, contactLinks } from './contact';
-
+export { experiences } from './experience';
+export { skillCategories, skillPanels } from './skills';
